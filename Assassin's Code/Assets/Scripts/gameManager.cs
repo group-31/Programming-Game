@@ -16,7 +16,7 @@ public class gameManager : MonoBehaviour
         
     }
 
-    void LoadScene(int x)
+    public void LoadScene(int x)
     {
         SceneManager.LoadScene(x); //Loads level specified by input
     }

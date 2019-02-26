@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\dontDestroy.cs" />
+    <Compile Include="Assets\Scripts\exit.cs" />
     <Compile Include="Assets\Scripts\gameManager.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Student/Documents/GitHub/Programming-Game/Assassin's Code/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
