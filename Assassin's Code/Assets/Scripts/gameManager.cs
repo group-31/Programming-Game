@@ -2,23 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
 
-    void Start()
-    {
-        
-    }
+    public float vol = 1;
+    public Slider volSlider;
 
     void Update()
     {
-        
+        if(volSlider == null)
+        {
+            volSlider = (Slider)FindObjectOfType(typeof(Slider));
+        }
     }
 
-    public void LoadScene(int x)
+    public void LoadScene(int sceneIndex)
     {
-        SceneManager.LoadScene(x); //Loads level specified by input
+        SceneManager.LoadScene(sceneIndex); //Loads level
+    }
+
+    public void ChangeVolume()
+    {
+        vol = volSlider.value;
     }
 
 }
