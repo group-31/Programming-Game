@@ -7,10 +7,23 @@ public class playerMovement : MonoBehaviour
 
     void Start()
     {
+        /*Move(1);
+        Turn(90);
+        //Wait(2);
+        StartCoroutine(Wait());
+        Move(2);*/
+        StartCoroutine(currentPlayerMovement());
+    }
+
+    IEnumerator currentPlayerMovement() {
         Move(1);
         Turn(90);
-        Wait(2);
+        //Wait(2);
+        //StartCoroutine(Wait(3f));
+        yield return new WaitForSeconds(2f);
+        //Wait(2f);
         Move(2);
+        yield return new WaitForSeconds(1f);
     }
 
     void Update()
@@ -20,22 +33,19 @@ public class playerMovement : MonoBehaviour
 
     public void Move(int n)
     {
-        transform.position += transform.up * n;
+        transform.position -= transform.up * n;
     }
 
     public void Turn(int n)
     {
         transform.Rotate(0,0,-n);
     }
-
-    public void Wait(float n) //needs work
+    
+    IEnumerator Wait(float n)
     {
-        while (n > 0)
-        {
-            n -= Time.deltaTime;
-            Debug.Log(".");
-        }
-        return;
+
+        yield return new WaitForSeconds(n);
+
     }
 
 }
