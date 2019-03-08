@@ -7,23 +7,9 @@ public class playerMovement : MonoBehaviour
 
     void Start()
     {
-        /*Move(1);
-        Turn(90);
-        //Wait(2);
-        StartCoroutine(Wait());
-        Move(2);*/
-        StartCoroutine(currentPlayerMovement());
-    }
-
-    IEnumerator currentPlayerMovement() {
-        Move(1);
-        Turn(90);
-        //Wait(2);
-        //StartCoroutine(Wait(3f));
-        yield return new WaitForSeconds(2f);
-        //Wait(2f);
-        Move(2);
-        yield return new WaitForSeconds(1f);
+        PlayerMove(3);
+        PlayerTurn(90);
+        PlayerMove(3);
     }
 
     void Update()
@@ -31,21 +17,29 @@ public class playerMovement : MonoBehaviour
         
     }
 
-    public void Move(int n)
+    public void PlayerMove(int n)
     {
-        transform.position -= transform.up * n;
+        StartCoroutine(Move(n));
     }
 
-    public void Turn(int n)
+    public void PlayerTurn(int n)
     {
+        StartCoroutine(Turn(n));
+    }
+
+    public IEnumerator Move(int n)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            yield return new WaitForSeconds(0.5f);
+            transform.position += transform.up;
+        }
+    }
+
+    public IEnumerator Turn(int n)
+    {
+        yield return new WaitForSeconds(0.5f);
         transform.Rotate(0,0,-n);
-    }
-    
-    IEnumerator Wait(float n)
-    {
-
-        yield return new WaitForSeconds(n);
-
     }
 
 }
