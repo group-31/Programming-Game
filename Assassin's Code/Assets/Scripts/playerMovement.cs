@@ -7,39 +7,31 @@ public class playerMovement : MonoBehaviour
 
     void Start()
     {
-        PlayerMove(3);
-        PlayerTurn(90);
-        PlayerMove(3);
+
     }
 
-    void Update()
+    public void Move(int n)
     {
-        
-    }
-
-    public void PlayerMove(int n)
-    {
-        StartCoroutine(Move(n));
-    }
-
-    public void PlayerTurn(int n)
-    {
-        StartCoroutine(Turn(n));
-    }
-
-    public IEnumerator Move(int n)
-    {
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < Mathf.Abs(n); i++)
         {
-            yield return new WaitForSeconds(0.5f);
-            transform.position += transform.up;
+            if(CheckPos() && n > 0) transform.position += transform.up;
+            if(CheckPos() && n < 0) transform.position -= transform.up;
         }
     }
 
-    public IEnumerator Turn(int n)
+    public void Turn(int n)
     {
-        yield return new WaitForSeconds(0.5f);
         transform.Rotate(0,0,-n);
+    }
+
+    public void Wait(int n)
+    {
+        return; //fix soon
+    }
+
+    private bool CheckPos()
+    {
+        return true; //checks for walls etc before moving, to be added in future
     }
 
 }
