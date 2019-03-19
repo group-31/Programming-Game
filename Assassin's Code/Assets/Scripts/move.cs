@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class move : MonoBehaviour {
 
     public GameObject player;
+    public GameObject c;
     public playerMovement pM;
+    public code code;
     public Dropdown d;
     public InputField i;
     public int n = 1;
@@ -15,6 +17,7 @@ public class move : MonoBehaviour {
 	void Start ()
     {
         pM = player.GetComponent<playerMovement>();
+        code = c.GetComponent<code>();
 	}
 
     public void Sign()
@@ -30,8 +33,8 @@ public class move : MonoBehaviour {
     }
 
     // Update is called once per frame
-    public void Move ()
+    public void Move()
     {
-        pM.Move(n);
-	}
+        code.Add("M(" + n + ")");
+    }
 }
