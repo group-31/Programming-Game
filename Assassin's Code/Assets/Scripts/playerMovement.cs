@@ -7,7 +7,8 @@ public class playerMovement : MonoBehaviour
 
     void Start()
     {
-
+        transform.position = new Vector3(0, 0, 0);
+        transform.rotation = Quaternion.identity;
     }
 
     public void Move(int n)

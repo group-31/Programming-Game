@@ -23,7 +23,7 @@ public class run : MonoBehaviour
         Execute(c.stringText);
     }
 
-    public void Execute(string s) //FIX FIX FIX FIX FIX FIX FIX FIX FIX FIX FIX FIX FIX FIX FIX
+    public void Execute(string s)
     {
         int pos = 0;
         for (int i = 0; i < s.Length; i++)
@@ -31,9 +31,8 @@ public class run : MonoBehaviour
             char c = s[i];
             if (c == 'M')
             {
-                pos = i;
+                pos = i + 2;
                 string temp = "";
-                pos += 2;
                 while (s[pos] != ')')
                 {
                     temp += s[pos];
@@ -43,8 +42,8 @@ public class run : MonoBehaviour
             }
             if (c == 'T')
             {
+                pos = i + 2;
                 string temp = "";
-                pos += 2;
                 while (s[pos] != ')')
                 {
                     temp += s[pos];

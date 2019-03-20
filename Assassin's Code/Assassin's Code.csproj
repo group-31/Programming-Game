@@ -97,12 +97,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\code.cs" />
     <Compile Include="Assets\Scripts\dontDestroy.cs" />
     <Compile Include="Assets\Scripts\exit.cs" />
     <Compile Include="Assets\Scripts\funtionFile.cs" />
     <Compile Include="Assets\Scripts\gameManager.cs" />
     <Compile Include="Assets\Scripts\move.cs" />
     <Compile Include="Assets\Scripts\playerMovement.cs" />
+    <Compile Include="Assets\Scripts\run.cs" />
     <Compile Include="Assets\Scripts\turn.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
