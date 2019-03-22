@@ -6,38 +6,57 @@ using UnityEngine.UI;
 public class code : MonoBehaviour
 {
     private Text text;
-    private List<string> list;
-    public string stringText;
+    private List<string> list, displayList;
+    public string stringText, displayText;
 
     void Start()
     {
         text = GetComponent<Text>();
         list = new List<string>();
+        displayList = new List<string>();
     }
 
     void Update()
     {
         stringText = "";
+        displayText = "";
         for(int i = 0; i < list.Count; i++)
         {
             stringText += list[i] + "\n";
+            displayText += displayList[i] + "\n";
         }
         if (list.Count == 0) stringText = "Code goes here...";
-        text.text = stringText;
+        text.text = displayText;
     }
 
     public void Add(string n)
     {
         list.Add(n);
+        if (n[0] == 'M')
+        {
+            if(n[2] != '-') displayList.Add("Move Forward " + n.Substring(1) + " Spaces");
+            else displayList.Add("Move Back " + n.Substring(1) + " Spaces");
+        }
+        else if (n[0] == 'T')
+        {
+            if(n == "T(180)") displayList.Add("Turn Around");
+            else if (n[2] != '-') displayList.Add("Turn Right");
+            else displayList.Add("Turn Left");
+        }
     }
 
     public void Delete()
     {
-        list.RemoveAt(list.Count-1);
+        if (list.Count != 0)
+        {
+            list.RemoveAt(list.Count - 1);
+            displayList.RemoveAt(list.Count - 1);
+        }
     }
 
     public void Clear()
     {
         list.Clear();
+        displayList.Clear();
     }
 }

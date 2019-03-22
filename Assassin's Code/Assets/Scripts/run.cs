@@ -9,26 +9,47 @@ public class run : MonoBehaviour
     public GameObject player;
     public code c;
     public GameObject C;
-    public Button b;
+    public Button go;
+    public Button clear;
+    public Button delete;
+    private bool running = false;
 
     public void Start()
     {
         pM = player.GetComponent<playerMovement>();
         c = C.GetComponent<code>();
-        b.onClick.AddListener(() => Click());
+        go.onClick.AddListener(() => Click());
+    }
+
+    public void Update()
+    {
+        if (running == false)
+        {
+            go.interactable = true;
+            clear.interactable = true;
+            delete.interactable = true;
+        }
+        else
+        {
+            go.interactable = false;
+            clear.interactable = false;
+            delete.interactable = false;
+        }
     }
 
     public void Click()
     {
-        Execute(c.stringText);
+        if(running == false) StartCoroutine(Execute(c.stringText));
     }
 
-    public void Execute(string s)
+    public IEnumerator Execute(string s)
     {
+        running = true;
         int pos = 0;
         for (int i = 0; i < s.Length; i++)
         {
             char c = s[i];
+            if (c == 'T' || c == 'M') while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
             if (c == 'M')
             {
                 pos = i + 2;
@@ -40,7 +61,7 @@ public class run : MonoBehaviour
                 }
                 pM.Move(System.Convert.ToInt32(temp));
             }
-            if (c == 'T')
+            else if (c == 'T')
             {
                 pos = i + 2;
                 string temp = "";
@@ -51,6 +72,8 @@ public class run : MonoBehaviour
                 }
                 pM.Turn(System.Convert.ToInt32(temp));
             }
+            while (!Input.GetKeyUp(KeyCode.Space)) yield return null;
         }
+        running = false;
     }
 }
