@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class code : MonoBehaviour
 {
     private Text text;
-    private List<string> list, displayList;
+    public List<string> list, displayList;
     public string stringText, displayText;
 
     void Start()
@@ -42,6 +42,10 @@ public class code : MonoBehaviour
             if(n == "T(180)") displayList.Add("Turn Around");
             else if (n[2] != '-') displayList.Add("Turn Right");
             else displayList.Add("Turn Left");
+        }
+        else if (n[0] == 'W')
+        {
+            displayList.Add("Wait " + n.Substring(1) + " Turns");
         }
     }
 

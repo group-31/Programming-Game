@@ -39,7 +39,7 @@ public class run : MonoBehaviour
 
     public void Click()
     {
-        if(running == false) StartCoroutine(Execute(c.stringText));
+        if(running == false && c.list.Count > 0) StartCoroutine(Execute(c.stringText));
     }
 
     public IEnumerator Execute(string s)
@@ -49,7 +49,6 @@ public class run : MonoBehaviour
         for (int i = 0; i < s.Length; i++)
         {
             char c = s[i];
-            if (c == 'T' || c == 'M') while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
             if (c == 'M')
             {
                 pos = i + 2;
@@ -59,7 +58,12 @@ public class run : MonoBehaviour
                     temp += s[pos];
                     pos++;
                 }
-                pM.Move(System.Convert.ToInt32(temp));
+                for (int j = 0; j < Mathf.Abs(System.Convert.ToInt32(temp)); j++)
+                {
+                    while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
+                    pM.Move(System.Convert.ToInt32(temp));
+                    while (!Input.GetKeyUp(KeyCode.Space)) yield return null;
+                }
             }
             else if (c == 'T')
             {
@@ -70,7 +74,25 @@ public class run : MonoBehaviour
                     temp += s[pos];
                     pos++;
                 }
+                while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
                 pM.Turn(System.Convert.ToInt32(temp));
+                while (!Input.GetKeyUp(KeyCode.Space)) yield return null;
+            }
+            else if (c == 'W')
+            {
+                pos = i + 2;
+                string temp = "";
+                while (s[pos] != ')')
+                {
+                    temp += s[pos];
+                    pos++;
+                }
+                for (int j = 0; j < Mathf.Abs(System.Convert.ToInt32(temp)); j++)
+                {
+                    while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
+                    Debug.Log("wait");
+                    while (!Input.GetKeyUp(KeyCode.Space)) yield return null;
+                }
             }
             while (!Input.GetKeyUp(KeyCode.Space)) yield return null;
         }
