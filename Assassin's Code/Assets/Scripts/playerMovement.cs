@@ -24,7 +24,8 @@ public class playerMovement : MonoBehaviour
     {
         transform.Rotate(0,0,-n);
         //Debug.Log(Mathf.RoundToInt(transform.rotation.ToEulerAngles().z));
-        changePlayerLook(transform.rotation.ToEulerAngles().z);
+        changePlayerLook(transform.eulerAngles.z);
+        Debug.Log(Mathf.RoundToInt(transform.eulerAngles.z));
     }
 
     private bool CheckPos()
@@ -32,24 +33,28 @@ public class playerMovement : MonoBehaviour
         return true; //checks for walls etc before moving, to be added in future
     }
 
-    public void changePlayerLook(float z)
+    public void changePlayerLook(float n)
     {
-        z = Mathf.RoundToInt(z);
-        if (z == 2)
+        int z = Mathf.RoundToInt(n);
+        if (z == 90)
         {
             this.GetComponent<SpriteRenderer>().sprite = assassinLeftSide;
+            Debug.Log("left");
         }
-        else if (z == -2)
+        if (z == 270)
         {
             this.GetComponent<SpriteRenderer>().sprite = assassinRightSide;
+            Debug.Log("right");
         }
-        else if (z == 0)
+        if (z == 0)
         {
             this.GetComponent<SpriteRenderer>().sprite = assassinBehind;
+            Debug.Log("up");
         }
-        else
+        if (z == 180)
         {
             this.GetComponent<SpriteRenderer>().sprite = assassin;
+            Debug.Log("down");
         }
     }
 
