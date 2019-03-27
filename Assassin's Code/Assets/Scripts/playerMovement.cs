@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class playerMovement : MonoBehaviour
 {
+    public Collider2D col;
+    public GameObject tileSet;
+    public Collider2D otherCol;
 
     public Sprite assassin, assassinBehind, assassinLeftSide, assassinRightSide;
 
     void Start()
     {
+        col = GetComponent<Collider2D>();
+        otherCol = tileSet.GetComponent<Collider2D>();
         transform.position = new Vector3(0, 0, 0);
         transform.rotation = Quaternion.identity;
     }
 
     public void Move(int n)
     {
-        if(CheckPos() && n > 0) transform.position += transform.up;
-        if(CheckPos() && n < 0) transform.position -= transform.up;
+        if(n > 0) if(CheckPos(true)) transform.position += transform.up;
+        if(n < 0) if (CheckPos(false)) transform.position -= transform.up;
         //this.GetComponent<SpriteRenderer>().sprite = assassin;
     }
 
@@ -25,12 +30,29 @@ public class playerMovement : MonoBehaviour
         transform.Rotate(0,0,-n);
         //Debug.Log(Mathf.RoundToInt(transform.rotation.ToEulerAngles().z));
         changePlayerLook(transform.eulerAngles.z);
-        Debug.Log(Mathf.RoundToInt(transform.eulerAngles.z));
     }
 
-    private bool CheckPos()
+    private bool CheckPos(bool positive)
     {
-        return true; //checks for walls etc before moving, to be added in future
+        bool n;
+        if (positive == true)
+        {
+            col.transform.Translate(transform.up);
+            if (col.IsTouching(otherCol)) n = false;
+            else n = true;
+            col.transform.Translate(-transform.up);
+            return n;
+        }
+        
+        if (positive == false)
+        {
+            col.transform.Translate(-transform.up);
+            if (col.IsTouching(otherCol)) n = false;
+            else n = true;
+            col.transform.Translate(transform.up);
+            return n;
+        }
+        else return false;
     }
 
     public void changePlayerLook(float n)
@@ -39,22 +61,18 @@ public class playerMovement : MonoBehaviour
         if (z == 90)
         {
             this.GetComponent<SpriteRenderer>().sprite = assassinLeftSide;
-            Debug.Log("left");
         }
         if (z == 270)
         {
             this.GetComponent<SpriteRenderer>().sprite = assassinRightSide;
-            Debug.Log("right");
         }
         if (z == 0)
         {
             this.GetComponent<SpriteRenderer>().sprite = assassinBehind;
-            Debug.Log("up");
         }
         if (z == 180)
         {
             this.GetComponent<SpriteRenderer>().sprite = assassin;
-            Debug.Log("down");
         }
     }
 

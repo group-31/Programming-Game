@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class playerHealth : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public Sprite assassin;
 
-    // Update is called once per frame
     public void Reset()
     {
         transform.position = new Vector3(0, 0, 0);
         transform.eulerAngles = new Vector3(0, 0, 0);
+        this.GetComponent<SpriteRenderer>().sprite = assassin;
     }
 }
