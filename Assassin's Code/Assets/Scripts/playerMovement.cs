@@ -6,22 +6,21 @@ public class playerMovement : MonoBehaviour
 {
     public Collider2D col;
     public GameObject tileSet;
-    public Collider2D otherCol;
+    public bool forward;
 
     public Sprite assassin, assassinBehind, assassinLeftSide, assassinRightSide;
 
     void Start()
     {
         col = GetComponent<Collider2D>();
-        otherCol = tileSet.GetComponent<Collider2D>();
         transform.position = new Vector3(0, 0, 0);
         transform.rotation = Quaternion.identity;
     }
 
     public void Move(int n)
     {
-        if(n > 0) if(CheckPos(true)) transform.position += transform.up;
-        if(n < 0) if (CheckPos(false)) transform.position -= transform.up;
+        if (n > 0) { forward = true; transform.position += transform.up; }
+        if (n < 0) { forward = false; transform.position -= transform.up; }
         //this.GetComponent<SpriteRenderer>().sprite = assassin;
     }
 
@@ -32,27 +31,11 @@ public class playerMovement : MonoBehaviour
         changePlayerLook(transform.eulerAngles.z);
     }
 
-    private bool CheckPos(bool positive)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        bool n;
-        if (positive == true)
-        {
-            col.transform.Translate(transform.up);
-            if (col.IsTouching(otherCol)) n = false;
-            else n = true;
-            col.transform.Translate(-transform.up);
-            return n;
-        }
-        
-        if (positive == false)
-        {
-            col.transform.Translate(-transform.up);
-            if (col.IsTouching(otherCol)) n = false;
-            else n = true;
-            col.transform.Translate(transform.up);
-            return n;
-        }
-        else return false;
+        if (forward == true) transform.position -= transform.up;
+        else transform.position += transform.up;
+        //Debug.Log("Collision detected");
     }
 
     public void changePlayerLook(float n)
