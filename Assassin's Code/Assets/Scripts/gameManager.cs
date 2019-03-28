@@ -9,12 +9,14 @@ public class gameManager : MonoBehaviour
 
     public float vol = 1;
     public Slider volSlider;
+    public GameObject obj;
 
     void Update()
     {
         if(volSlider == null)
         {
-            volSlider = (Slider)FindObjectOfType(typeof(Slider));
+            //obj = GameObject.FindWithTag("Vol");
+            volSlider = obj.GetComponent<Slider>();
         }
     }
 
