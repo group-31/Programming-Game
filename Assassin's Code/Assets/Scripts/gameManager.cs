@@ -13,11 +13,11 @@ public class gameManager : MonoBehaviour
 
     void Update()
     {
-        if(volSlider == null)
+        /*if(volSlider == null)
         {
             //obj = GameObject.FindWithTag("Vol");
             volSlider = obj.GetComponent<Slider>();
-        }
+        }*/
     }
 
     public void LoadScene(int sceneIndex)

@@ -12,13 +12,16 @@ public class run : MonoBehaviour
     public Button go;
     public Button clear;
     public Button delete;
-    private bool running = false;
+    public bool running = false;
+    public GameObject space;
+    public mashSpace m;
 
     public void Start()
     {
         pM = player.GetComponent<playerMovement>();
         c = C.GetComponent<code>();
         go.onClick.AddListener(() => Click());
+        m = space.GetComponent<mashSpace>();
     }
 
     public void Update()
@@ -39,7 +42,12 @@ public class run : MonoBehaviour
 
     public void Click()
     {
-        if(running == false && c.list.Count > 0) StartCoroutine(Execute(c.stringText));
+        if (running == false && c.list.Count > 0)
+        {
+            StartCoroutine(Execute(c.stringText));
+            space.SetActive(true);
+            m.MashSpace();
+        }
     }
 
     public IEnumerator Execute(string s)
@@ -90,7 +98,6 @@ public class run : MonoBehaviour
                 for (int j = 0; j < Mathf.Abs(System.Convert.ToInt32(temp)); j++)
                 {
                     while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
-                    Debug.Log("wait");
                     while (!Input.GetKeyUp(KeyCode.Space)) yield return null;
                 }
             }

@@ -13,7 +13,6 @@ public class playerMovement : MonoBehaviour
     void Start()
     {
         col = GetComponent<Collider2D>();
-        transform.position = new Vector3(0, 0, 0);
         transform.rotation = Quaternion.identity;
     }
 

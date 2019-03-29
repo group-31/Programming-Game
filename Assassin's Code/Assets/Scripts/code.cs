@@ -54,7 +54,7 @@ public class code : MonoBehaviour
         if (list.Count != 0)
         {
             list.RemoveAt(list.Count - 1);
-            displayList.RemoveAt(list.Count - 1);
+            displayList.RemoveAt(list.Count);
         }
     }
 
