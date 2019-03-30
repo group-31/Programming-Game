@@ -8,11 +8,19 @@ public class mashSpace : MonoBehaviour
     public Sprite barPressed;
     public GameObject run;
     public run r;
+    public GameObject cam;
+    public Vector3 offset;
 
     public void Start()
     {
         r = run.GetComponent<run>();
+        offset = new Vector3(0,-1,5);
         this.gameObject.SetActive(false);
+    }
+
+    public void Update()
+    {
+        transform.position = cam.transform.position + offset;
     }
 
     public void MashSpace()
