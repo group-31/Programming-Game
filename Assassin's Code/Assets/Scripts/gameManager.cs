@@ -22,7 +22,12 @@ public class gameManager : MonoBehaviour
 
     public void LoadScene(int sceneIndex)
     {
-        SceneManager.LoadScene(sceneIndex); //Loads level
+        SceneManager.LoadScene(sceneIndex); //Loads specified level
+    }
+
+    public void LoadNext()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Loads next level
     }
 
     public void ChangeVolume()

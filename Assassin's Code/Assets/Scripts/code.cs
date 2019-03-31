@@ -34,18 +34,32 @@ public class code : MonoBehaviour
         list.Add(n);
         if (n[0] == 'M')
         {
-            if(n[2] != '-') displayList.Add("Move Forward " + n.Substring(1) + " Spaces");
-            else displayList.Add("Move Back " + n.Substring(1) + " Spaces");
+            int pos = + 2;
+            string temp = "";
+            while (n[pos] != ')')
+            {
+                temp += n[pos];
+                pos++;
+            }
+            int val = Mathf.Abs(System.Convert.ToInt32(temp));
+            temp = "";
+            if (val > 1)
+            {
+                temp += ("for(int i = 0; i < " + val + "; i++)\n    ");
+            }
+            if (n[2] != '-') temp += ("player.moveForward" + n.Substring(1));
+            else temp += ("player.moveBack" + n.Substring(1));
+            displayList.Add(temp);
         }
         else if (n[0] == 'T')
         {
-            if(n == "T(180)") displayList.Add("Turn Around");
-            else if (n[2] != '-') displayList.Add("Turn Right");
-            else displayList.Add("Turn Left");
+            if(n == "T(180)") displayList.Add("player.turnAround");
+            else if (n[2] != '-') displayList.Add("player.turnRight");
+            else displayList.Add("player.turnLeft");
         }
         else if (n[0] == 'W')
         {
-            displayList.Add("Wait " + n.Substring(1) + " Turns");
+            displayList.Add("player.wait" + n.Substring(1));
         }
     }
 

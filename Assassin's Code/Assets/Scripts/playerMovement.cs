@@ -7,6 +7,8 @@ public class playerMovement : MonoBehaviour
     public Collider2D col;
     public GameObject tileSet;
     public bool forward;
+    public GameObject manager;
+    public gameManager gM;
 
     public Sprite assassin, assassinBehind, assassinLeftSide, assassinRightSide;
 
@@ -14,6 +16,8 @@ public class playerMovement : MonoBehaviour
     {
         col = GetComponent<Collider2D>();
         transform.rotation = Quaternion.identity;
+        manager = GameObject.Find("Game Manager");
+        gM = manager.GetComponent<gameManager>();
     }
 
     public void Move(int n)
@@ -32,9 +36,16 @@ public class playerMovement : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (forward == true) transform.position -= transform.up;
-        else transform.position += transform.up;
-        //Debug.Log("Collision detected");
+        if (other.gameObject.name == "Walls")
+        {
+            if (forward == true) transform.position -= transform.up;
+            else transform.position += transform.up;
+            //Debug.Log("Collision detected");
+        }
+        if (other.gameObject.name == "Exit")
+        {
+            gM.LoadNext();
+        }
     }
 
     public void changePlayerLook(float n)
