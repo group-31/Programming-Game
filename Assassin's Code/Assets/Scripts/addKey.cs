@@ -16,7 +16,7 @@ public class addKey : MonoBehaviour
     {
         
     }
-    void onCollision(Collider2D other)
+    void onCollisionEnter(Collider2D other)
     {
         if (other.gameObject.name == "Player")
         {

@@ -20,10 +20,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 957
-  m_MinSize: {x: 955, y: 524}
-  m_MaxSize: {x: 22010, y: 14024}
+  m_MinSize: {x: 955, y: 548}
+  m_MaxSize: {x: 22010, y: 14048}
   vertical: 1
-  controlID: 11256
+  controlID: 4653
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -126,10 +126,10 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 957
-  m_MinSize: {x: 955, y: 524}
-  m_MaxSize: {x: 22010, y: 14024}
+  m_MinSize: {x: 955, y: 548}
+  m_MaxSize: {x: 22010, y: 14048}
   vertical: 0
-  controlID: 11257
+  controlID: 4654
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -152,10 +152,10 @@ MonoBehaviour:
     y: 0
     width: 1152
     height: 957
-  m_MinSize: {x: 446, y: 524}
-  m_MaxSize: {x: 8006, y: 12024}
+  m_MinSize: {x: 446, y: 548}
+  m_MaxSize: {x: 8006, y: 12048}
   vertical: 1
-  controlID: 11258
+  controlID: 4655
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_MinSize: {x: 446, y: 224}
   m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
-  controlID: 11259
+  controlID: 4656
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -305,8 +305,8 @@ MonoBehaviour:
     y: 0
     width: 384
     height: 331
-  m_MinSize: {x: 240, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 244, y: 224}
+  m_MaxSize: {x: 4004, y: 4024}
   m_ActualView: {fileID: 9}
   m_Panes:
   - {fileID: 9}
@@ -362,8 +362,8 @@ MonoBehaviour:
     y: 331
     width: 1152
     height: 166
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 124}
+  m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 11}
@@ -442,10 +442,10 @@ MonoBehaviour:
     y: 0
     width: 352
     height: 957
-  m_MinSize: {x: 234, y: 474}
-  m_MaxSize: {x: 10004, y: 14024}
+  m_MinSize: {x: 234, y: 498}
+  m_MaxSize: {x: 10004, y: 14048}
   vertical: 1
-  controlID: 11215
+  controlID: 4593
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -503,7 +503,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 98a0ffffd8a0ffff16a2ffff6ca2ffff90a4ffff28b9ffff46f9ffffd6fbffff700c00008c0c0000060d0000ca0d0000480e0000
+      m_ExpandedIDs: 6ae6ffffe8e6ffff20e7ffffd2faffffd6fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -546,8 +546,8 @@ MonoBehaviour:
     y: 422
     width: 352
     height: 535
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
+  m_MinSize: {x: 234, y: 274}
+  m_MaxSize: {x: 10004, y: 10024}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -591,19 +591,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\David\Documents\GitHub\Programming-Game\Assassin's Code
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a60a0000
-    m_LastClickedID: 2726
+    m_SelectedIDs: da0a0000
+    m_LastClickedID: 2778
     m_ExpandedIDs: 000000007c09000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -632,7 +632,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007c090000460a00006e0b000000ca9a3b
+    m_ExpandedIDs: 000000007c09000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -657,8 +657,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: f40a0000
-    m_LastClickedInstanceID: 2804
+    m_SelectedInstanceIDs: 30e6ffff
+    m_LastClickedInstanceID: -6608
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000058320000622700008227000000000000
     m_RenameOverlay:
@@ -684,7 +684,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 190}
     m_GridSize: 64
   m_DirectoriesAreaWidth: 110
 --- !u!114 &18
