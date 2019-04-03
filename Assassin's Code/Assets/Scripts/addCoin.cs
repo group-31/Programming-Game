@@ -16,10 +16,9 @@ public class addCoin : MonoBehaviour
     {
         
     }
-
-    void onCollisionEnter(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.name == "Player")
+        if (other.gameObject.name == "Player")
         {
             coinCtrl.coinPickup();
             Destroy(gameObject);

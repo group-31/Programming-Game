@@ -9,7 +9,7 @@ public class playerTrack : MonoBehaviour
 
     void Start()
     {
-        offset = new Vector3(3,0, -10);
+        offset = new Vector3(-3,0, -10);
     }
 
     void Update()

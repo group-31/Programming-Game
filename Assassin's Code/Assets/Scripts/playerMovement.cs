@@ -36,7 +36,7 @@ public class playerMovement : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Walls")
+        if (other.gameObject.name == "Walls" || other.gameObject.name == "Door")
         {
             if (forward == true) transform.position -= transform.up;
             else transform.position += transform.up;
