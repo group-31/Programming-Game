@@ -14,7 +14,7 @@ public class mashSpace : MonoBehaviour
     public void Start()
     {
         r = run.GetComponent<run>();
-        offset = new Vector3(3,-1,5);
+        offset = new Vector3(1.5f,-1,5);
         this.gameObject.SetActive(false);
     }
 

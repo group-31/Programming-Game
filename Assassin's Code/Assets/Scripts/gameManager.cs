@@ -30,6 +30,11 @@ public class gameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Loads next level
     }
 
+    public void Reload()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Loads next level
+    }
+
     public void ChangeVolume()
     {
         vol = volSlider.value;
