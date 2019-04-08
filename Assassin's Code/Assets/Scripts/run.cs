@@ -19,10 +19,11 @@ public class run : MonoBehaviour
     public GameObject space;
     public mashSpace m;
     public GameObject hide;
+    public enemy[] enemies;
 
     public void Start()
     {
-        enemyPlayer = FindObjectOfType<enemy>();
+        enemies = FindObjectsOfType<enemy>();
         pM = player.GetComponent<playerMovement>();
         c = C.GetComponent<code>();
         go.onClick.AddListener(() => Click());
@@ -78,9 +79,12 @@ public class run : MonoBehaviour
                 for (int j = 0; j < Mathf.Abs(System.Convert.ToInt32(temp)); j++)
                 {
                     while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
-                    
+
                     pM.Move(System.Convert.ToInt32(temp));
-                    enemyPlayer.enemyMove();
+                    for (int k = 0; k < enemies.Length; k++)
+                    {
+                        enemies[k].enemyMove();
+                    }
                     while (!Input.GetKeyUp(KeyCode.Space)) yield return null;
                 }
             }
@@ -94,9 +98,12 @@ public class run : MonoBehaviour
                     pos++;
                 }
                 while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
-                
+
                 pM.Turn(System.Convert.ToInt32(temp));
-                enemyPlayer.enemyMove();
+                for (int k = 0; k < enemies.Length; k++)
+                {
+                    enemies[k].enemyMove();
+                }
                 while (!Input.GetKeyUp(KeyCode.Space)) yield return null;
             }
             else if (c == 'W')
@@ -111,7 +118,10 @@ public class run : MonoBehaviour
                 for (int j = 0; j < Mathf.Abs(System.Convert.ToInt32(temp)); j++)
                 {
                     while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
-                    enemyPlayer.enemyMove();
+                    for (int k = 0; k < enemies.Length; k++)
+                    {
+                        enemies[k].enemyMove();
+                    }
                     while (!Input.GetKeyUp(KeyCode.Space)) yield return null;
                 }
             }
