@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50eb149df73c96440adeb8a0b116c755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOver: {fileID: 0}
   assassin: {fileID: 21300000, guid: 206c4f9177beb1348a6fb6511e128b1f, type: 3}
   assassinBehind: {fileID: 21300000, guid: 8cad5dfd0d9ed7648aca62dd2cea408c, type: 3}
   assassinLeftSide: {fileID: 21300000, guid: f78322e1f6d8b174fa415292e66d75c7, type: 3}
@@ -102,7 +103,7 @@ MonoBehaviour:
   wall: {fileID: 0}
   manager: {fileID: 0}
   enemyFace: 0
-  enemyPath: 000000005a000000b40000000e010000000000005a000000b40000000e010000
+  enemyPath: 0e0100000100000001000000b40000005a0000000100000001000000b4000000
   moveCounter: 0
   gM: {fileID: 0}
   touchWall: 0
