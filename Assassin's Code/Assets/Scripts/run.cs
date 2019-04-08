@@ -7,6 +7,8 @@ public class run : MonoBehaviour
 {
     public playerMovement pM;
     public GameObject player;
+    public enemy enemyPlayer;
+    public GameObject enemyPlayer2;
     public code c;
     public GameObject C;
     public Button go;
@@ -20,6 +22,7 @@ public class run : MonoBehaviour
 
     public void Start()
     {
+        enemyPlayer = FindObjectOfType<enemy>();
         pM = player.GetComponent<playerMovement>();
         c = C.GetComponent<code>();
         go.onClick.AddListener(() => Click());
@@ -75,7 +78,9 @@ public class run : MonoBehaviour
                 for (int j = 0; j < Mathf.Abs(System.Convert.ToInt32(temp)); j++)
                 {
                     while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
+                    
                     pM.Move(System.Convert.ToInt32(temp));
+                    enemyPlayer.enemyMove();
                     while (!Input.GetKeyUp(KeyCode.Space)) yield return null;
                 }
             }
@@ -89,7 +94,9 @@ public class run : MonoBehaviour
                     pos++;
                 }
                 while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
+                
                 pM.Turn(System.Convert.ToInt32(temp));
+                enemyPlayer.enemyMove();
                 while (!Input.GetKeyUp(KeyCode.Space)) yield return null;
             }
             else if (c == 'W')
@@ -104,6 +111,7 @@ public class run : MonoBehaviour
                 for (int j = 0; j < Mathf.Abs(System.Convert.ToInt32(temp)); j++)
                 {
                     while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
+                    enemyPlayer.enemyMove();
                     while (!Input.GetKeyUp(KeyCode.Space)) yield return null;
                 }
             }
