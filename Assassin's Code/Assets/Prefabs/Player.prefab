@@ -100,6 +100,7 @@ MonoBehaviour:
   forward: 0
   manager: {fileID: 0}
   gM: {fileID: 0}
+  win: {fileID: 0}
   assassin: {fileID: 21300000, guid: a50146c972dbd194182e199a673fa7fb, type: 3}
   assassinBehind: {fileID: 21300000, guid: 20de0dca37efc8f43a8408ae857284a7, type: 3}
   assassinLeftSide: {fileID: 21300000, guid: c038f8f495bdfea4c928c6da0570e186, type: 3}

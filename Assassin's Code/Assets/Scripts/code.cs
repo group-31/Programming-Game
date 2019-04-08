@@ -20,12 +20,12 @@ public class code : MonoBehaviour
     {
         stringText = "";
         displayText = "";
-        for(int i = 0; i < list.Count; i++)
+        for (int i = 0; i < list.Count; i++)
         {
             stringText += list[i] + "\n";
             displayText += displayList[i] + "\n";
         }
-        if (list.Count == 0) stringText = "Code goes here...";
+        if (list.Count == 0) { stringText = "Code goes here..."; displayText = stringText; }
         text.text = displayText;
     }
 

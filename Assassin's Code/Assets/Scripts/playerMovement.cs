@@ -9,6 +9,7 @@ public class playerMovement : MonoBehaviour
     public bool forward;
     public GameObject manager;
     public gameManager gM;
+    public GameObject win;
 
     public Sprite assassin, assassinBehind, assassinLeftSide, assassinRightSide;
 
@@ -44,7 +45,7 @@ public class playerMovement : MonoBehaviour
         }
         if (other.gameObject.name == "Exit")
         {
-            gM.LoadNext();
+            win.SetActive(true);
         }
     }
 

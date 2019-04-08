@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
-
+    public GameObject gameOver;
     public Sprite assassin, assassinBehind, assassinLeftSide, assassinRightSide;
     [SerializeField] GameObject player;
     [SerializeField] Collider2D wall;
@@ -21,17 +21,11 @@ public class enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
+        
         enemyFace = 0;
         manager = GameObject.Find("Game Manager");
         gM = manager.GetComponent<gameManager>();
         touchWall = false;
-
-
-
-
-
 
     }
 
@@ -169,7 +163,7 @@ public class enemy : MonoBehaviour
             {
 
                 Debug.Log("dead");
-                gM.LoadScene(3);
+                gameOver.SetActive(true);
 
             }
         }
@@ -180,7 +174,8 @@ public class enemy : MonoBehaviour
             {
 
                 Debug.Log("dead");
-                gM.LoadScene(3);
+                gameOver.SetActive(true);
+
             }
         }
 
@@ -190,7 +185,7 @@ public class enemy : MonoBehaviour
             {
 
                 Debug.Log("dead");
-                gM.LoadScene(3);
+                gameOver.SetActive(true);
 
             }
         }
@@ -201,7 +196,8 @@ public class enemy : MonoBehaviour
             {
 
                 Debug.Log("dead");
-                gM.LoadScene(3);
+                gameOver.SetActive(true);
+
             }
         }
 
