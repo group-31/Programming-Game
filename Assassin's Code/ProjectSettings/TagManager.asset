@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Vol
   - ItemController
+  - Win
   layers:
   - Default
   - TransparentFX
