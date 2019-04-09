@@ -11,6 +11,7 @@ public class run : MonoBehaviour
     public GameObject enemyPlayer2;
     public code c;
     public GameObject C;
+    public scroll s;
     public Button go;
     public Button clear;
     public Button delete;
@@ -26,6 +27,7 @@ public class run : MonoBehaviour
         enemies = FindObjectsOfType<enemy>();
         pM = player.GetComponent<playerMovement>();
         c = C.GetComponent<code>();
+        s = FindObjectOfType<scroll>();
         go.onClick.AddListener(() => Click());
         m = space.GetComponent<mashSpace>();
     }
@@ -52,6 +54,7 @@ public class run : MonoBehaviour
     {
         if (running == false && c.list.Count > 0)
         {
+            s.AddCode();
             StartCoroutine(Execute(c.stringText));
             space.SetActive(true);
             m.MashSpace();
