@@ -6604,7 +6604,6 @@ MonoBehaviour:
   go: {fileID: 1828000757380085520}
   clear: {fileID: 1828000756781491599}
   delete: {fileID: 1828000756259237271}
-  reset: {fileID: 1828000757538740580}
   running: 0
   space: {fileID: 0}
   m: {fileID: 0}

@@ -14,7 +14,6 @@ public class run : MonoBehaviour
     public Button go;
     public Button clear;
     public Button delete;
-    public Button reset;
     public bool running = false;
     public GameObject space;
     public mashSpace m;
@@ -38,7 +37,6 @@ public class run : MonoBehaviour
             go.interactable = true;
             clear.interactable = true;
             delete.interactable = true;
-            reset.interactable = true;
             hide.SetActive(false);
         }
         else
@@ -46,7 +44,6 @@ public class run : MonoBehaviour
             go.interactable = false;
             clear.interactable = false;
             delete.interactable = false;
-            reset.interactable = false;
             hide.SetActive(true);
         }
     }

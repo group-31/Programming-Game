@@ -79,7 +79,7 @@ public class enemy : MonoBehaviour
 
 
 
-        if (moveCounter == 8)
+        if (moveCounter == enemyPath.Length)
         {
             moveCounter = 0;
         }
@@ -199,6 +199,12 @@ public class enemy : MonoBehaviour
                 gameOver.SetActive(true);
 
             }
+        }
+
+        if (this.transform.position == player.transform.position)
+        {
+            Debug.Log("dead");
+            gameOver.SetActive(true);
         }
 
 
