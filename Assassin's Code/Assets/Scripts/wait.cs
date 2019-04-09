@@ -15,6 +15,7 @@ public class wait : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        player = GameObject.FindWithTag("Player");
         pM = player.GetComponent<playerMovement>();
         code = c.GetComponent<code>();
         n = 1;

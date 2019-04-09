@@ -23,6 +23,7 @@ public class run : MonoBehaviour
 
     public void Start()
     {
+        player = GameObject.FindWithTag("Player");
         enemies = FindObjectsOfType<enemy>();
         pM = player.GetComponent<playerMovement>();
         c = C.GetComponent<code>();

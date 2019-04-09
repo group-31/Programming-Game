@@ -13,6 +13,7 @@ public class doorUnlock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        iController = GameObject.FindWithTag("ItemController");
         iC = iController.GetComponent<itemController>();
         col = GetComponent<BoxCollider2D>();
     }
