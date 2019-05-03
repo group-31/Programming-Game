@@ -153,3 +153,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinCtrl: {fileID: 0}
+  score: {fileID: 0}
+  n: 500
